@@ -1,0 +1,73 @@
+		GRAPH PLOTTER
+==========================================
+PROJECT DOCUMENTATION
+==========================================
+Completion Date: October , 2019
+==========================================
+\\@ Project Name	: Graph Plotter
+
+\\@ Perpose of writing 	: Self-Assigned
+
+\\@ Application 	: Scientific Tool
+
+licensed under: GNU GENERAL PUBLIC LICENSE (#"license.txt")
+-----------------------------------------------------------
+\\@ author:  Arunava Sarkar
+----------------------------------------------------
+
+----------------------------------------------------
+
+\\@ Using this code:
+	1. Open TurboC++
+	2. To read the mathematical function from the keyboard, Open The file "GETFUNC.CPP" and execute/run it. On the console type a valid c++ expression using the variable as x. This expression is read by the program and stored.
+	3. The Resolution of the graph is an integer between 10-200 and is defined as the the number of pixels per unit dimension of the viewing screen as provided by the graphics driver. The larger the resolution, the smaller the area of the graph displayed.
+	4. To see the graph of the expression you just entered, open the file "WORK.CPP" and execute/run it. This displays the Graph of the function.
+	5. If the graph does not appear, and instead an error appears as " Graphics error: Device driver file not found...", you must change the path of the BGI directory in the souce code to match that of your computer. To change it just modify the path defined in the code(here:"c:\\TC\\BGI") as ' #define pathOfBGI "c:\\TC\\BGI" ' to the path of the BGI directory in your computer's storage. 
+
+----------------------------------------------------
+
+\\@ INTRODUCTION to the concept:
+
+Our Graphics based program enables it's users to plot the graph of a mathematical function with the help of Borland International's Turbo C Compiler. It has a very basic concept: we first get the values of all the points which could be plot on the screen into a contiguous memory location with help of an array and then continuously plot the points as well as join the consecutive points on a Cartesian plain. It has two main programs. One reads the expression from the keyboard; another plots the graph. Error handling for infinite limits and DOMAIN error in built into the project file through our self-defined "aritherr.h" file. 
+
+\\@Internal working:
+The computer screen's coordinates are defined in terms of position of the pixels to the bottom and to the right of the top-leftmost corners. The x-coordinates increase toward the left and the y-coordinate increase towards the bottom of the screen. This is different from the Cartesian plane we use in mathematical graphs. Therefore, as you'd have guessed it, after getting the (X,Y) values for the Cartesian plane, our program internally converts these coordinates to their equivalent computer coordinates so as to get the position of the point at the same location of the computer screen. Then these values are stored in a 1D array where the nth point's x-coordinate is stored in (2n)th index and the y-coordinate in the (2n+1)th index. then this array is handled so that points where the coordinates is beyond the computer screen are removed and the array is then sent to be plotted. The plotting is done using the function drawpoly(..) declared in the <graphics.h> header file. The plot thus produced is displayed in the screen. The program now waits for a keytap to close the graph screen.
+
+----------------------------------------------------
+
+\\@ Filelist : Description
+	
+The project consists of the following files:
+1.	   RUN.BAT	:	This batch file initiates compilation and execution of the project bundle.*
+2.	ARITHERR.H	:	This header is solely responsible for handling the arithmetic error which may occur during program execution. It basically redeclared the struct matherr which is responsible for handling error for math.h functions.
+3.	FUNCTION.H	:	This header source file is a self-declared utility package. It holds the expression for which the plot is to be made. the function f(...) declared in this header also returns the evaluated value of the expression for the given argument.
+4.	GETFUNC.CPP	:	It is our first source file for execution. It is responsible for reading the expression which the user wants to get a plot of. It also writes the program to the FUNCTION.H header file during execution. ONLY VALID C++ EXPRESSIONS MUST ENTERED WHILE THIS PROGRAM IS RUN.
+5.	WORK.CPP	:	As the name suggests most of the work is done in here. This program is responsible for plotting and displaying the graph of the mathematical function stored in "function.h".
+6.    DOCUMENTATION.TXT	:	Project Details and other info.
+7.	README.TXT	:	Preface to the project
+
+----------------------------------------------------
+
+\\@Limitations:
+
+1. The Code is written for TurboC++ compiler. It is not supported by modern compilers like mingw or visualC++.
+2. The two programs are interdependent hence cannot be compiled in a single compilation. GETFUNC.CPP must be compiled and run before the compilation of WORK.CPP. Hence we must find other ways to link them.
+3. Undefined limits are not always handled correctly. Only infinite limits are processed.
+4. Compilation errors due to use expressions which are invalid in c++ may exist if such expressions are entered.
+----------------------------------------------------
+\\@ Source Code:
+	Bundled with this documentation.
+----------------------------------------------------
+\\@Bibliography and references:
+	1. Turbo C++ help index
+	2. People at Stackoverflow.com
+
+====================================================
+*[Note: In the current day since TurboC compiler (TCC) cannot be used through the command line in windows command prompt, we cannot compile or execute the operations through the command line. This can be achieved using GCC compilers of the latest version. For GCC equivalent of this program check the " GNU PLOTUTILS Library "] 
+
+
+
+
+----------------------------------------------------
+Regards, 
+#Authors
