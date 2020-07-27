@@ -12,7 +12,7 @@ Completion Date: October , 2019
 
 licensed under: GNU GENERAL PUBLIC LICENSE (#"license.txt")
 -----------------------------------------------------------
-\\@ author:  Arunava Sarkar
+\\@ author:  Arunava Sarkar, Ayan Dhua
 ----------------------------------------------------
 
 ----------------------------------------------------
